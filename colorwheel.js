@@ -1,3 +1,5 @@
+//Thanks to https://www.codehim.com/vanilla-javascript/javascript-color-wheel-picker/
+
 var ColorPicker;
 
 (function() {
