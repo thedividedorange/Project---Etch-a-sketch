@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="vieweport" width="device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <title>Etch-A-Sketch</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1 class="pageTitle">Etch-A-Sketch-Pad</h1>
+        </div>
+        <div class="container">
+            <div class="left">
+                <div class="colorPicker">
+                    <div class="col">
+                        <div class="row">
+                            <div id="picker"></div>
+                        </div>
+                        <div class="row">
+                            <h3> Color Preview </h3>
+                            <div id="preview"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sliderContainer">
+                    <span class="sliderOutput">0</span>
+                    <input type="range" min="1" max="100" value="16" class="slider" id="sliderRange"> 
+                </div>
+                <button class="rainbow">Rainbow Color</button>
+                <button class="erase">Eraser</button>
+                <button class="filter">Shade</button>
+                <button class="reset">Reset Board</button>
+            </div>
+
+
+            <div class="right">
+                <div class="sketchContainer"></div>
+            </div>
+        </div>
+
+
+    
+
+
+    
+
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="colorwheel.js"></script>
+    </body>
+</html>
