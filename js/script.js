@@ -72,7 +72,7 @@ function resetBoard(){
 
 function eraseGrid(e){
         isSelectedColor = `rgb(231, 231, 231)`
-        e.target.style.backgroundColor = isSelectedColor
+        e.target.style.backgroundColor = `rgb(231, 231, 231)`
         e.target.style.filter = `brightness(100%)`
         e.target.setAttribute("counter", "1")
 }
