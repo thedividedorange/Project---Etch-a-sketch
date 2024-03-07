@@ -78,7 +78,7 @@ div.etchContainer::after {
   border-radius: 10em;
   background-color: white;
   top: 30px;
-  right: 60px;
+  right: 78px;
 }
 
 div.sketchContainer {
@@ -103,7 +103,7 @@ div.sketchContainer::after {
   border-radius: 10em;
   background-color: white;
   top: 34px;
-  left: 265px;
+  left: 285px;
 }
 
 .gridBox {
@@ -129,7 +129,7 @@ div.sketchContainer::after {
 
 .sliderContainer {
   display: inline-block;
-  width: 80%;
+  width: 200px;
   margin-bottom: 3em;
 }
 
