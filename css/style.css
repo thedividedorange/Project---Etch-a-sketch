@@ -16,6 +16,10 @@ body {
   background: -webkit-radial-gradient(black, #022561, #000000);
 }
 
+a {
+  color: white;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -162,10 +166,6 @@ div.sketchContainer::after {
   margin: 1em auto;
   padding: 0 5em;
 }
-
-/* .hover{
-    background:black;
-} */
 
 span.sliderOutput::before {
   content: "";
@@ -454,6 +454,17 @@ span.sliderOutput {
   }
 }
 
+.footer{
+    text-align: center;
+    color: gold;
+    line-height: 2.4px;
+}
+
+.footer-brand img {
+  position: relative;
+  top: 10px;
+  padding: 0 0.4em;
+}
 
 
  
