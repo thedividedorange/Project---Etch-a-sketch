@@ -458,6 +458,8 @@ span.sliderOutput {
     text-align: center;
     color: gold;
     line-height: 2.4px;
+    width: 1200px;
+    margin: auto;
 }
 
 .footer-brand img {
