@@ -455,11 +455,17 @@ span.sliderOutput {
 }
 
 .footer{
-    text-align: center;
-    color: gold;
-    line-height: 2.4px;
-    width: 1200px;
-    margin: auto;
+  text-align: center;
+  color: gold;
+  width: 1200px;
+  margin: 2em auto;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+p.footer-info, span.footer-brand {
+  margin: 0;
 }
 
 .footer-brand img {
