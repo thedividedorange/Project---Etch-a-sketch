@@ -54,7 +54,7 @@ div.etchContainer{
 }
 
 div.etchContainer::before {
-  content: "Magic EtchASketch Screen";
+  /* content: "Magic EtchASketch Screen";
   position: relative;
   display: inline-block;
   top: -60px;
@@ -65,7 +65,22 @@ div.etchContainer::before {
   font-family: 'Brush Script MT', cursive;
   font-weight: 700;
   color:color-mix(in srgb, rgb(250, 187, 13) 90%, rgb(0, 0, 0) 10%);
+  text-shadow: 0px 1px 1px rgba(20, 14, 0, 0.749); */
+
+  content: "Magic EtchASketch Screen";
+  position: relative;
+  display: block;
+  top: -60px;
+  text-align: center;
+  margin: 0 auto -30px;
+  font-size: 3.8rem;
+  font-family: 'Brush Script MT', cursive;
+  font-weight: 700;
+  color: color-mix(in srgb, rgb(250, 187, 13) 90%, rgb(0, 0, 0) 10%);
   text-shadow: 0px 1px 1px rgba(20, 14, 0, 0.749);
+  white-space: nowrap;
+  width: fit-content;
+  height: auto;
 }
 
 div.etchContainer::after {
