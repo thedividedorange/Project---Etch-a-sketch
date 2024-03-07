@@ -484,7 +484,7 @@ p.footer-info, span.footer-brand {
   .container {
     flex-direction: column;
     gap:6em;
-    margin-top:7em auto auto
+    margin-top:7em;
   }
 
   div.etchContainer{
