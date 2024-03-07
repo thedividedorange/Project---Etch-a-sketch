@@ -161,7 +161,7 @@ div.sketchContainer::after {
   float: left;
   width: 200px;
   height: 240px;
-  display: inline-block;
+  display: block;
   background: #5D5F60;
 }
 
