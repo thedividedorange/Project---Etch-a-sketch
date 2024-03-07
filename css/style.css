@@ -180,6 +180,7 @@ div.sketchContainer::after {
   color: #fff;
   position:relative;
   top:15.2em;
+  display: block;
 }
 
 .color-picker-container .picker-container .slider-container {
