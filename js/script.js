@@ -1,15 +1,16 @@
 const sketchContainer = document.querySelector(".sketchContainer")
 const colorPickerContainer = document.querySelector(".colorPicker")
 const slider = document.querySelector(".sliderContainer .slider")
-const sliderOutput = document.querySelector(".sliderContainer .sliderOutput")
+const sliderOutput = document.querySelector(".sliderOutput")
 const rainbowButton = document.querySelector(".rainbow")
 const resetSketchPad = document.querySelector(".reset")
 const erase = document.querySelector(".erase")
 const filterButton = document.querySelector(".filter")
-
+const rollers = document.querySelector("div.etchContainer::after")
 let isSelectedColor;
 let gridSize = 0;
 
+VerlyRange('sliderRange', 'rgb(255, 0, 0)');
 sliderOutput.textContent = slider.value
 
 function createGrids(){
@@ -18,8 +19,8 @@ function createGrids(){
     gridSize = parseInt(sliderOutput.textContent)
 
     for(i = 1;i<=gridSize*gridSize;i++){
-        height = (600/gridSize).toPrecision(6)
-        width = (600/gridSize).toPrecision(6)
+        height = (500/gridSize).toPrecision(6)
+        width = (500/gridSize).toPrecision(6)
 
         const createGridBox = document.createElement("div")
         createGridBox.classList.add("gridBox")
@@ -119,4 +120,8 @@ function removeEventListener(){
     sketchContainer.removeEventListener("mouseover", paintGridRainbow)
     sketchContainer.removeEventListener("mouseover", eraseGrid)
     sketchContainer.removeEventListener("mouseover", shade)
+}
+
+function updateRollers(){
+    rollers.style.backgroundColor = isSelectedColor;
 }

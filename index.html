@@ -5,6 +5,14 @@
         <meta name="vieweport" width="device-width, initial-scale=1.0">
 
         <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/anuraghazra/VerlyRangeSlider@v1.0.2/src/style.css" />
+        <script src="https://cdn.jsdelivr.net/gh/anuraghazra/Verly.js@v1.1.4/dist/verly.bundle.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/anuraghazra/VerlyRangeSlider@v1.0.2/src/VerlyRange.js"></script>
+
+        <script defer type="text/javascript" src="./js/script.js"></script>
+        <script defer type="text/javascript" src="./js/colorwheel.js"></script>
+
         <title>Etch-A-Sketch</title>
     </head>
     <body>
@@ -12,41 +20,32 @@
             <h1 class="pageTitle">Etch-A-Sketch-Pad</h1>
         </div>
         <div class="container">
-            <div class="left">
+            <div class="top">
+                <div class = "etchContainer">
+                    <div class="sketchContainer"></div>
+                </div>
+            </div>
+            
+            <div class="bottom">
                 <div class="colorPicker">
                     <div class="col">
                         <div class="row">
                             <div id="picker"></div>
                         </div>
-                        <div class="row">
-                            <h3> Color Preview </h3>
-                            <div id="preview"></div>
-                        </div>
                     </div>
                 </div>
-                <div class="sliderContainer">
+                <label class="sliderContainer">
                     <span class="sliderOutput">0</span>
-                    <input type="range" min="1" max="100" value="16" class="slider" id="sliderRange"> 
-                </div>
-                <button class="rainbow">Rainbow Color</button>
-                <button class="erase">Eraser</button>
-                <button class="filter">Shade</button>
-                <button class="reset">Reset Board</button>
+                    <input class="slider" id="sliderRange" type="range" min="1" step="2" max="100" value="16" />
+                </label>
+                <button class="button-rainbow rainbow">Rainbow Color</button>
+                <button class="button erase">Eraser</button>
+                <button class="button filter">Shade</button>
+                <button class="button reset">Reset Board</button>
             </div>
 
-
-            <div class="right">
-                <div class="sketchContainer"></div>
-            </div>
+            
         </div>
 
-
-    
-
-
-    
-
-    <script type="text/javascript" src="./js/script.js"></script>
-    <script type="text/javascript" src="./js/colorwheel.js"></script>
     </body>
 </html>
