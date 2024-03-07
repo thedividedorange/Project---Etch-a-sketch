@@ -161,7 +161,7 @@ div.sketchContainer::after {
   float: left;
   width: 200px;
   height: 240px;
-  display: block;
+  display: grid;
   background: #5D5F60;
 }
 
@@ -197,7 +197,6 @@ div.sketchContainer::after {
   position:relative;
   top:15.2em;
   display: block;
-  float:right;
 }
 
 .color-picker-container .picker-container .slider-container {
