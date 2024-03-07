@@ -7,7 +7,9 @@ html {
 }
     
 body {
-  margin: 0;
+  display:flex;
+  flex-direction:column;
+  /* margin: 0; */
   min-height: 100vh;
   font-size:1.6rem;
   width:100%;
@@ -24,9 +26,8 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 1200px;
-  margin: auto;
-  padding-top: 3em;
+  margin: 1em auto auto;
+  padding-top: 0;
 }
 
 .top {
@@ -177,8 +178,11 @@ span.sliderOutput::before {
   z-index: -1;
   position: absolute;
   background: white;
+  /* top: 22.3em;
+  right: 20em; */
+
   top: 22.3em;
-  right: 20em;
+  right: 18.95em
 }
 
 span.sliderOutput {
@@ -196,6 +200,8 @@ span.sliderOutput {
   background: #000000a6 none repeat scroll 0% 0%;
   border-radius: 4px;
   border: 2px solid #414141;
+  min-height: 333px;
+  min-width: 289px;
 }
   
 .color-picker-container .picker-container .canvas-container {
@@ -454,12 +460,10 @@ span.sliderOutput {
   }
 }
 
-.footer{
+.footer {
   text-align: center;
   color: gold;
-  width: 1200px;
   margin: 2em auto;
-  bottom: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -475,4 +479,22 @@ p.footer-info, span.footer-brand {
 }
 
 
- 
+
+@media only screen and (max-width: 980px){
+  .container {
+    flex-direction: column;
+    gap:6em;
+  }
+
+  div.etchContainer{
+    transform:scale(1.15)
+  }
+
+  .bottom{
+    gap:1em
+  }
+
+  span.sliderOutput::before{
+    top:22.0em;
+  }
+}
