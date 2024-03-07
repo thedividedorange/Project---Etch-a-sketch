@@ -158,6 +158,7 @@ div.sketchContainer::after {
   border-radius: 50%;
   box-shadow: 0 0 0 4px #E8E8E8;
   background: #E6D3D3;
+  display: block;
 }
 
 .color-picker-container .picker-container .canvas-container .pointer {
@@ -167,7 +168,6 @@ div.sketchContainer::after {
   border-radius: 50%;
   position: absolute;
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.1);
 }
 
 .color-picker-container .picker-container .canvas-container input {
