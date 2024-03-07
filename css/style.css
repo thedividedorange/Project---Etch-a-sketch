@@ -11,12 +11,9 @@ body {
   min-height: 100vh;
   font-size:1.6rem;
   width:100%;
-}
-
-.pageTitle{
-  text-align: center;
-  width: 1200px;
-  margin:auto;
+  background: radial-gradient(black, #022561, #000000);
+  background: -moz-radial-gradient(black, #022561, #000000);
+  background: -webkit-radial-gradient(black, #022561, #000000);
 }
 
 .container {
@@ -25,6 +22,7 @@ body {
   justify-content: center;
   width: 1200px;
   margin: auto;
+  padding-top: 3em;
 }
 
 .top {
@@ -34,6 +32,20 @@ body {
 .bottom{
   display: flex;
   flex-direction: column;
+  animation: slideInRight 2s forwards 3s 1;
+  visibility: hidden;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
 }
 
 div.etchContainer{
@@ -48,10 +60,36 @@ div.etchContainer{
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(226, 54, 54, 0.821)), to(rgba(231, 35, 35, 0.829))), -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, .1)), color-stop(0.501, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0)));
   background: -moz-linear-gradient(top, rgba(226, 54, 54, 0.821), rgba(231, 35, 35, 0.829)), -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .1) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
   background: linear-gradient(top, rgba(226, 54, 54, 0.821), rgba(231, 35, 35, 0.829)), linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .1) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
-  transform:scale(0.8);
+  transform:scale(0.9);
   box-shadow: 0px 4px 0px 5px rgba(226, 54, 54, 0.821);
   cursor:pointer;
+
 }
+
+.slide-in{
+  animation: slide-in 3s 1;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: scale(0.1) rotate(30deg);
+    transform-origin: center bottom;
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  70% {
+    transform: rotate(3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(0.9);
+  }
+  }
 
 div.etchContainer::before {
   content: "Magic EtchASketch Screen";
@@ -125,8 +163,26 @@ div.sketchContainer::after {
   padding: 0 5em;
 }
 
-.hover{
+/* .hover{
     background:black;
+} */
+
+span.sliderOutput::before {
+  content: "";
+  border: 2px solid black;
+  width: 8px;
+  height: 8px;
+  padding: 0.5em;
+  border-radius: 10em;
+  z-index: -1;
+  position: absolute;
+  background: white;
+  top: 22.3em;
+  right: 20em;
+}
+
+span.sliderOutput {
+  font-weight: 700;
 }
 
 .sliderContainer {
@@ -137,9 +193,9 @@ div.sketchContainer::after {
 
 .color-picker-container {
   display: inline-block;
-  background: #5d5f60 none repeat scroll 0% 0%;
+  background: #000000a6 none repeat scroll 0% 0%;
   border-radius: 4px;
-  border: 2px solid #f8fafb;
+  border: 2px solid #414141;
 }
   
 .color-picker-container .picker-container .canvas-container {
@@ -149,7 +205,7 @@ div.sketchContainer::after {
   width: 200px;
   height: 240px;
   display: grid;
-  background: #5D5F60;
+  background: #00000000;
 }
 
 .color-picker-container .picker-container .canvas-container.active {
@@ -177,7 +233,7 @@ div.sketchContainer::after {
   width: 100%;
   height: 30px;
   text-align: center;
-  background: #353738;
+  background: #3537383b;
   border: 0;
   color: #fff;
   position: relative;
@@ -370,8 +426,33 @@ div.sketchContainer::after {
   border-radius: 10px;
 }
 
+.wobble {
+  animation: wobble 1.2s;
+}
 
-
+@keyframes wobble {
+  from {
+    transform: none;
+  }
+  15% {
+    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+  }
+  30% {
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+  }
+  45% {
+    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+  }
+  60% {
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+  }
+  75% {
+    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+  }
+  to {
+    transform: none;
+  }
+}
 
 
 

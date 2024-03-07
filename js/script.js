@@ -1,3 +1,4 @@
+const etchContainer = document.querySelector(".etchContainer")
 const sketchContainer = document.querySelector(".sketchContainer")
 const colorPickerContainer = document.querySelector(".colorPicker")
 const slider = document.querySelector(".sliderContainer .slider")
@@ -29,7 +30,7 @@ function createGrids(){
         sketchContainer.appendChild(createGridBox)
     }
 }
-createGrids()
+
 
 function paintGridWheel(e){
     isSelectedColor = getWheelColor()
@@ -63,12 +64,19 @@ function removeGrid(){
 }
 
 function resetBoard(){
-    const selectAllGrids = document.querySelectorAll(".gridBox")
-    selectAllGrids.forEach((grid) =>{
+    etchContainer.classList.toggle("wobble")
+    setTimeout(()=>{
+        const selectAllGrids = document.querySelectorAll(".gridBox")
+        selectAllGrids.forEach((grid) =>{
         grid.style.backgroundColor = `rgb(231, 231, 231)`
         grid.style.filter = `brightness(100%)`
         grid.setAttribute("counter", "1")
     })
+    },500)
+
+    setTimeout(()=>{
+        etchContainer.classList.toggle("wobble")
+    },1500)
 }
 
 function eraseGrid(e){
@@ -76,6 +84,8 @@ function eraseGrid(e){
         e.target.style.backgroundColor = `rgb(231, 231, 231)`
         e.target.style.filter = `brightness(100%)`
         e.target.setAttribute("counter", "1")
+
+
 }
 
 function shade(e){
@@ -125,3 +135,11 @@ function removeEventListener(){
 function updateRollers(){
     rollers.style.backgroundColor = isSelectedColor;
 }
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    createGrids()
+    etchContainer.classList.toggle("slide-in")
+    setTimeout(()=>{
+        etchContainer.classList.toggle("slide-in") 
+    },3000)
+})
