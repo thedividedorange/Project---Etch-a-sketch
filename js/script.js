@@ -7,7 +7,6 @@ const rainbowButton = document.querySelector(".rainbow")
 const resetSketchPad = document.querySelector(".reset")
 const erase = document.querySelector(".erase")
 const filterButton = document.querySelector(".filter")
-const rollers = document.querySelector("div.etchContainer::after")
 let isSelectedColor;
 let gridSize = 0;
 
@@ -30,7 +29,6 @@ function createGrids(){
         sketchContainer.appendChild(createGridBox)
     }
 }
-
 
 function paintGridWheel(e){
     isSelectedColor = getWheelColor()
@@ -101,7 +99,6 @@ function clickSlide(){
     removeGrid()
 }
 
-
 slider.addEventListener("input", clickSlide)
 resetSketchPad.addEventListener("click", resetBoard)
 
@@ -130,10 +127,6 @@ function removeEventListener(){
     sketchContainer.removeEventListener("mouseover", paintGridRainbow)
     sketchContainer.removeEventListener("mouseover", eraseGrid)
     sketchContainer.removeEventListener("mouseover", shade)
-}
-
-function updateRollers(){
-    rollers.style.backgroundColor = isSelectedColor;
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
