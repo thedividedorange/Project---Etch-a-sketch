@@ -178,7 +178,6 @@ span.sliderOutput::before {
   z-index: -1;
   position: absolute;
   background: white;
-  /* transform: translate(-15%, -15%); */
   left:-5px;
   bottom:-2px;
 }
@@ -479,8 +478,6 @@ p.footer-info, span.footer-brand {
   padding: 0 0.4em;
 }
 
-
-
 @media only screen and (max-width: 980px){
   .container {
     flex-direction: column;
@@ -494,9 +491,5 @@ p.footer-info, span.footer-brand {
 
   .bottom{
     gap:1em
-  }
-
-  span.sliderOutput::before{
-    top:22.0em;
   }
 }
