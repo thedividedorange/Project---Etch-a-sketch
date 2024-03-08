@@ -178,15 +178,15 @@ span.sliderOutput::before {
   z-index: -1;
   position: absolute;
   background: white;
-  /* top: 22.3em;
-  right: 20em; */
-
-  top: 22.3em;
-  right: 18.95em
+  /* transform: translate(-15%, -15%); */
+  left:-5px;
+  bottom:-2px;
 }
 
 span.sliderOutput {
   font-weight: 700;
+  position: relative;
+  margin:2em auto;
 }
 
 .sliderContainer {
@@ -202,6 +202,7 @@ span.sliderOutput {
   border: 2px solid #414141;
   min-height: 333px;
   min-width: 289px;
+  margin-bottom:2em;
 }
   
 .color-picker-container .picker-container .canvas-container {
