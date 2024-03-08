@@ -105,6 +105,7 @@ resetSketchPad.addEventListener("click", resetBoard)
 colorPickerContainer.addEventListener("click", ()=>{
     removeEventListener()
     sketchContainer.addEventListener("mouseover", paintGridWheel)
+    sketchContainer.addEventListener("touchmove", paintGridWheel)
 })
 
 rainbowButton.addEventListener("click", ()=>{
