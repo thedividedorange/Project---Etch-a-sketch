@@ -486,7 +486,12 @@ p.footer-info, span.footer-brand {
   }
 
   div.etchContainer{
-    transform:scale(1.15)
+    transform:scale(1.1);
+    animation: none !important;
+  }
+
+  .bottom{
+    animation: slideInRight 2s forwards 0.5s 1;
   }
 
   .bottom{
