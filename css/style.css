@@ -13,13 +13,13 @@ body {
   min-height: 100vh;
   font-size:1.6rem;
   width:100%;
-  background: radial-gradient(black, #022561, #000000);
-  background: -moz-radial-gradient(black, #022561, #000000);
-  background: -webkit-radial-gradient(black, #022561, #000000);
+  background: radial-gradient(rgb(0, 0, 0), rgb(2, 37, 97),rgb(0, 0, 0));
+  background: -moz-radial-gradient(rgb(0, 0, 0), rgb(2, 37, 97), rgb(0, 0, 0));
+  background: -webkit-radial-gradient(rgb(0, 0, 0), rgb(2, 37, 97), rgb(0, 0, 0));
 }
 
 a {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .container {
@@ -113,19 +113,6 @@ div.etchContainer::before {
   height: auto;
 }
 
-div.etchContainer::after {
-  content: "";
-  position: relative;
-  display: inline-block;
-  border: 1px solid black;
-  width: 90px;
-  height: 90px;
-  border-radius: 10em;
-  background-color: white;
-  top: 30px;
-  right: 78px;
-}
-
 div.sketchContainer {
   display: flex;
   width: 501px;
@@ -138,22 +125,30 @@ div.sketchContainer {
   cursor: crosshair;
 }
 
-div.sketchContainer::after {
+div.sketchContainer::after, div.etchContainer::after{
   content: "";
   position: relative;
   display: inline-block;
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0);
   width: 90px;
   height: 90px;
   border-radius: 10em;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+}
+
+div.etchContainer::after {
+  top: 30px;
+  right: 78px;
+}
+
+div.sketchContainer::after {
   top: 34px;
   left: 30.55em;
 }
 
 .gridBox {
   display: flex;
-  background: #d2d2d2;
+  background: rgb(210, 210, 210);
   box-sizing: border-box;
   border: 1px solid rgb(199, 199, 199);
 }
@@ -170,14 +165,14 @@ div.sketchContainer::after {
 
 span.sliderOutput::before {
   content: "";
-  border: 2px solid black;
+  border: 2px solid rgb(0, 0, 0);
   width: 8px;
   height: 8px;
   padding: 0.5em;
   border-radius: 10em;
   z-index: -1;
   position: absolute;
-  background: white;
+  background: rgb(255, 255, 255);
   left:-5px;
   bottom:-2px;
 }
@@ -196,9 +191,9 @@ span.sliderOutput {
 
 .color-picker-container {
   display: inline-block;
-  background: #000000a6 none repeat scroll 0% 0%;
+  background: rgba(0, 0, 0, 0.651) none repeat scroll 0% 0%;
   border-radius: 4px;
-  border: 2px solid #414141;
+  border: 2px solid rgb(65, 65, 65);
   min-height: 333px;
   min-width: 289px;
   margin-bottom:2em;
@@ -211,7 +206,7 @@ span.sliderOutput {
   width: 200px;
   height: 240px;
   display: grid;
-  background: #00000000;
+  background: rgba(0, 0, 0, 0);
 }
 
 .color-picker-container .picker-container .canvas-container.active {
@@ -221,15 +216,15 @@ span.sliderOutput {
 .color-picker-container .picker-container .canvas-container canvas {
   cursor: crosshair;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px #E8E8E8;
-  background: #E6D3D3;
+  box-shadow: 0 0 0 4px rgb(232, 232, 232);
+  background: rgb(230, 211, 211);
   display: block;
 }
 
 .color-picker-container .picker-container .canvas-container .pointer {
   width: 15px;
   height: 15px;
-  border: 2px solid #fff;
+  border: 2px solid rgb(255, 255, 255);
   border-radius: 50%;
   position: absolute;
   pointer-events: none;
@@ -239,9 +234,9 @@ span.sliderOutput {
   width: 100%;
   height: 30px;
   text-align: center;
-  background: #3537383b;
+  background: rgba(53, 55, 56, 0.231);
   border: 0;
-  color: #fff;
+  color: rgb(255, 255, 255);
   position: relative;
   display: block;
   top: 220px;
@@ -257,7 +252,7 @@ span.sliderOutput {
 .color-picker-container .picker-container .slider-container .slider {
   width: 15px;
   height: 249px;
-  background: #000;
+  background: rgb(0, 0, 0);
 }
 
 .color-picker-container .picker-container .slider-container .pointer {
@@ -265,7 +260,7 @@ span.sliderOutput {
   height: 0;
   border-style: solid;
   border-width: 5px 0 5px 10px;
-  border-color: transparent transparent transparent #007bff;
+  border-color: transparent transparent transparent rgb(0, 123, 255);
   position: absolute;
   left: -8px;
 }
@@ -286,11 +281,11 @@ span.sliderOutput {
 }
 
 .color-picker-container .palletes-container .palette.active {
-  box-shadow: 0 0 0 3px #3F3F40;
+  box-shadow: 0 0 0 3px rgb(63, 63, 64);
 }
 
 .color-picker-container .palletes-container .palette.add {
-  border: 2px dashed #bababa;
+  border: 2px dashed rgb(186, 186, 186);
   box-shadow: inherit;
   position: relative;
 }
@@ -298,7 +293,7 @@ span.sliderOutput {
 .color-picker-container .palletes-container .palette.add:after {
   content: "+";
   font-size: 24px;
-  color: #bababa;
+  color: rgb(186, 186, 186);
   position: absolute;
   width: 100%;
   height: 100%;
@@ -316,7 +311,7 @@ span.sliderOutput {
   background: transparent;
   border: none;
   position: relative;
-  color: #f0f0f0;
+  color: rgb(240, 240, 240);
   cursor: pointer;
   z-index: 1;
   padding: 10px 20px;
@@ -343,7 +338,7 @@ span.sliderOutput {
   transform: translate(0%, 0%);
   width: 100%;
   height: 100%;
-  background: #28282d;
+  background: rgb(40, 40, 45);
   border-radius: 10px;
 }
 
@@ -351,7 +346,7 @@ span.sliderOutput {
   transform: translate(10px, 10px);
   width: 35px;
   height: 35px;
-  background: #ffffff15;
+  background: rgba(255, 255, 255, 0.082);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border-radius: 50px;
@@ -375,13 +370,12 @@ span.sliderOutput {
   transform: translate(0, 5%);
 }
 
-
 .button-rainbow {
   padding: 0.6em 2em;
   border: none;
   outline: none;
   color: rgb(255, 255, 255);
-  background: #111;
+  background: rgb(17, 17, 17);
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -426,7 +420,7 @@ span.sliderOutput {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #222;
+  background: rgb(34, 34, 34);
   left: 0;
   top: 0;
   border-radius: 10px;
@@ -462,7 +456,7 @@ span.sliderOutput {
 
 .footer {
   text-align: center;
-  color: gold;
+  color: rgb(255, 215, 0);
   margin: 2em auto;
   display: flex;
   flex-direction: column;
@@ -492,9 +486,6 @@ p.footer-info, span.footer-brand {
 
   .bottom{
     animation: slideInRight 2s forwards 0.5s 1;
-  }
-
-  .bottom{
     gap:1em
   }
 }
