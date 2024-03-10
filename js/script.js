@@ -1,38 +1,55 @@
 const etchContainer = document.querySelector(".etchContainer")
 const sketchContainer = document.querySelector(".sketchContainer")
-const colorPickerContainer = document.querySelector(".colorPicker")
-const slider = document.querySelector(".sliderContainer .slider")
 const sliderOutput = document.querySelector(".sliderOutput")
-const rainbowButton = document.querySelector(".rainbow")
-const resetSketchPad = document.querySelector(".reset")
-const erase = document.querySelector(".erase")
-const filterButton = document.querySelector(".filter")
-let isSelectedColor;
-let gridSize = 0;
+const buttons = {
+    colorPickerContainer:   document.querySelector(".colorPicker"),
+    rainbowButton:          document.querySelector(".rainbow"),
+    erase:                  document.querySelector(".erase"),
+    filterButton:           document.querySelector(".filter"),
+    resetSketchPad:         document.querySelector(".reset"),
+    slider:                 document.querySelector(".sliderContainer .slider")
+}
 
 VerlyRange('sliderRange', 'rgb(255, 0, 0)');
-sliderOutput.textContent = slider.value
 
-function createGrids(){
-    let height
-    let width
-    gridSize = parseInt(sliderOutput.textContent)
+let dimensions = 16;
+let preferredPattern;
 
-    for(i = 1;i<=gridSize*gridSize;i++){
-        height = (500/gridSize).toPrecision(6)
-        width = (500/gridSize).toPrecision(6)
+sliderOutput.textContent = buttons.slider.value
 
-        const createGridBox = document.createElement("div")
-        createGridBox.classList.add("gridBox")
-        createGridBox.setAttribute("counter", '1')
-        createGridBox.setAttribute("style", `height: ${height}px;width: ${width}px;background-color: #e7e7e7;`)
-        sketchContainer.appendChild(createGridBox)
+function createGrid(dimensions){
+    let side = (500/dimensions).toPrecision(6)
+    const createGridBox = document.createElement("div")
+    createGridBox.classList.add("gridBox")
+    createGridBox.setAttribute("counter", '1')
+    createGridBox.setAttribute("style", `height: ${side}px;width: ${side}px;background-color: rgb(231, 231, 231);`)
+    sketchContainer.appendChild(createGridBox)   
+}
+
+function generateGrids(dimensions){
+    for(i=1;i<=dimensions**2;i++){
+        createGrid(dimensions)
     }
 }
 
-function paintGridWheel(e){
-    isSelectedColor = getWheelColor()
-    e.target.style.backgroundColor = isSelectedColor
+function clickSlide(){
+    removeGrids()
+    sliderOutput.textContent = parseInt(this.value)
+    dimensions = sliderOutput.textContent
+    generateGrids(dimensions)
+}
+
+function removeGrids(){
+    const selectAllGrids = document.querySelectorAll(".gridBox")
+    selectAllGrids.forEach((grid) =>{
+        grid.remove()
+    })    
+}
+
+function paintGrid(e){
+    if(preferredPattern ==="colorPicker"){
+        e.target.style.backgroundColor = getWheelColor()
+    } else { e.target.style.backgroundColor = generateRandomColor()}
 }
 
 function getWheelColor(){
@@ -48,27 +65,15 @@ function generateRandomColor(){
     return `rgb(${r}, ${g}, ${b})`
 }
 
-function paintGridRainbow(e){
-    isSelectedColor = generateRandomColor()
-    e.target.style.backgroundColor = isSelectedColor
-}
-
-function removeGrid(){
-    const selectAllGrids = document.querySelectorAll(".gridBox")
-    selectAllGrids.forEach((grid) =>{
-        grid.remove()
-    })
-    createGrids()
-}
-
 function resetBoard(){
     etchContainer.classList.toggle("wobble")
+
     setTimeout(()=>{
         const selectAllGrids = document.querySelectorAll(".gridBox")
         selectAllGrids.forEach((grid) =>{
-        grid.style.backgroundColor = `rgb(231, 231, 231)`
-        grid.style.filter = `brightness(100%)`
-        grid.setAttribute("counter", "1")
+            grid.style.backgroundColor = `rgb(231, 231, 231)`
+            grid.style.filter = `brightness(100%)`
+            grid.setAttribute("counter", "1")
     })
     },500)
 
@@ -78,12 +83,9 @@ function resetBoard(){
 }
 
 function eraseGrid(e){
-        isSelectedColor = `rgb(231, 231, 231)`
         e.target.style.backgroundColor = `rgb(231, 231, 231)`
         e.target.style.filter = `brightness(100%)`
         e.target.setAttribute("counter", "1")
-
-
 }
 
 function shade(e){
@@ -94,45 +96,43 @@ function shade(e){
     }   
 }
 
-function clickSlide(){
-    sliderOutput.textContent = this.value
-    removeGrid()
-}
+buttons.resetSketchPad.addEventListener("click", resetBoard)
+buttons.slider.addEventListener("input", clickSlide)
+buttons.erase.addEventListener("click", handleEraseButtonClick)
+buttons.colorPickerContainer.addEventListener("click", handleColorPickerClick)
+buttons.rainbowButton.addEventListener("click", handleRainbowButtonClick)
+buttons.filterButton.addEventListener("click", handleFilterButtonClick)
 
-slider.addEventListener("input", clickSlide)
-resetSketchPad.addEventListener("click", resetBoard)
-
-colorPickerContainer.addEventListener("click", ()=>{
-    removeEventListener()
-    sketchContainer.addEventListener("mouseover", paintGridWheel)
-})
-
-rainbowButton.addEventListener("click", ()=>{
-    removeEventListener()
-    sketchContainer.addEventListener("mouseover", paintGridRainbow)
-})
-
-erase.addEventListener("click", ()=>{
+function handleEraseButtonClick(){
     removeEventListener()
     sketchContainer.addEventListener("mouseover", eraseGrid)
-})
+}
 
-filterButton.addEventListener("click", ()=>{
+function handleFilterButtonClick() {
     removeEventListener()
     sketchContainer.addEventListener("mouseover", shade)
-})
+}
+
+function handleColorPickerClick(){
+    removeEventListener()
+    preferredPattern = this.className
+    sketchContainer.addEventListener("mouseover", paintGrid)
+}
+
+function handleRainbowButtonClick(){
+    removeEventListener()
+    preferredPattern = this.className
+    sketchContainer.addEventListener("mouseover", paintGrid)
+}
 
 function removeEventListener(){
-    sketchContainer.removeEventListener("mouseover", paintGridWheel)
-    sketchContainer.removeEventListener("mouseover", paintGridRainbow)
+    sketchContainer.removeEventListener("mouseover", paintGrid)
     sketchContainer.removeEventListener("mouseover", eraseGrid)
     sketchContainer.removeEventListener("mouseover", shade)
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    createGrids()
+    generateGrids(dimensions)
     etchContainer.classList.toggle("slide-in")
-    setTimeout(()=>{
-        etchContainer.classList.toggle("slide-in") 
-    },3000)
+    setTimeout(()=>{etchContainer.classList.toggle("slide-in")},3000)
 })
