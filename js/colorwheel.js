@@ -483,6 +483,6 @@ var colorPreview = document.getElementById('preview');
 
 var picker = new ColorPicker(document.getElementById('picker'), {
   onUpdate: function(rgb) {
-    colorPreview.style.background = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
+    // colorPreview.style.background = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
   }
 });
